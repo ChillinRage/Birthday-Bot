@@ -7,7 +7,7 @@ The zip file comes with `Birthday Bot.exe` main file, and `data` folder with the
 **Note**: this app only works with gmail accounts (only for the bot account) as it uses the gmail server to login and send emails. Your main email need not be a gmail account as its role is to only receive emails (reminder of your contacts' birthday).
 
 ### Set-up
-1. Download and unzip the folder (to somewhere on your device)
+1. Download the latest zip file from the release section and unzip the folder on your device.
 2. Open the folder and go to `_internal`.
 3. Check the `data` folder if it contains 3 files: `account.txt`, `data.csv`, and `logbook.txt`. (If any of them isn't there, you can download the specific files from this repository)
 ![image](https://github.com/ChillinRage/Birthday-Bot/assets/73763719/66e8464f-669e-49a1-b655-578971c245a8)
