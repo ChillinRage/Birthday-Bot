@@ -1,3 +1,4 @@
+import os
 from datetime import date
 
 
@@ -21,3 +22,9 @@ def formatDate(stringDate: str) -> date:  # input format: day/month/year
 def isToday(inputDate: date) -> bool:  # checks if input date is today (ignores its year)
     return ((inputDate.day == date.today().day) and
             (inputDate.month == date.today().month))
+
+
+def setWorkingDirectory() -> None:
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)

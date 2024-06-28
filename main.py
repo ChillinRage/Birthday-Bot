@@ -1,30 +1,45 @@
-from bot import Bot
 import logbook
+import time
+from bot import Bot
+from util import setWorkingDirectory
 
-try:
+
+def run():
+    setWorkingDirectory()
     birthdayBot = Bot()
 
     print("Checking logbook...")
-    if logbook.checkToday(): quit()
+    if logbook.checkToday():
+        return
 
+    time.sleep(0.3)
     print("Checking birthday list...")
     birthdayList = birthdayBot.getBirthdayList()
-    if not birthdayList: quit()
+    if not birthdayList:
+        logbook.update()
+        return
 
+    time.sleep(0.3)
     print("Connecting to email server...")
     birthdayBot.login()
 
+    time.sleep(0.3)
     print("Here's today's birthday people:")
     for person in birthdayList:
         print(f"    {person["name"]}")
-        #birthdayBot.sendMessage(person)
+        birthdayBot.sendMessage(person)
 
+    time.sleep(0.3)
     print("Wishes sent. Closing connector...")
     birthdayBot.logout()
     logbook.update()
 
-    input("All's done. Press anything to close window.")
+    time.sleep(0.3)
+    input("All's done. Press enter to close window.")
 
+
+try:
+    run()
 except Exception as e:
     print("ERROR: ", e)
     input("")
